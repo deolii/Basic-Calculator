@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Calculator </title>
+</head>
+<body>
+
+    <p> 
+        First Number: <input type="number" id="first_numb">
+    </p>
+
+    <p>
+            Second Number: <input type="number" id="second_numb">
+    </p>
+
+    <p>
+        <!-- Operator Buutons-->
+        <button onclick="set_operator('p')" id="plus">+</button>
+        <button onclick="set_operator('m')" id="minus">&minus;</button>
+        <button onclick="set_operator('t')" id="times">&times;</button>
+        <button onclick="set_operator('d')" id="divide">&divide;</button>
+    </p>
+
+    <p>
+        Result: <span id="result"></span>
+    </p>
+    <button onclick="calculate()" id="my_btn" class="my_buttons"> Calculate </button>
+    
+    <script type="text/javascript">
+
+    var operator = "p";
+
+    function set_operator(op) {
+        operator = op;
+    }
+function calculate() {
+    var first_number = Number(document.getElementById("first_numb").value); //Get the first number
+    var second_number = Number(document.getElementById("second_numb").value); // Get the second number
+
+    var result; //declare the result variable
+
+    if (operator=="p")  { //check operator selected by user
+          // if operator is plus
+        result= Number(first_number) + Number(second_number);
+    }
+    else if(operator=="m") {
+        // if operator is minus
+        result= Number(first_number) - Number(second_number);
+    }
+    else if(operator=="t") {
+        // if operator is times
+        result= Number(first_number) * Number(second_number);
+    }
+    else{
+        // if operator is other than the one stated before (which is divide)
+        result= Number(first_number) / Number(second_number);
+    }
+   
+   document.getElementById("result").textContent = result;
+}
+    </script>
+
+</body>
+</html>
